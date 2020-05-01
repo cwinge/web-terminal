@@ -14,7 +14,7 @@ def home():
 		with socket() as s:
 			s.bind(('', 0))
 			port = s.getsockname()[1]
-		command = "timeout 3600s gotty -p {0} -w --close-timeout 10 --timeout 30 docker run -it --rm {1}".format(port, request.form['dname'])
+		command = "timeout 3600s gotty -p {0} -w --close-timeout 120 --timeout 120 docker run -it --rm {1}".format(port, request.form['dname'])
 		subprocess.Popen(command, close_fds=True, shell=True)
 		redir = "http://{}:{}".format(app.config.get('ext_ip'), port)
 		time.sleep(0.1)
