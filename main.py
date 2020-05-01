@@ -1,5 +1,5 @@
 from flask import Flask, render_template, request, redirect
-import os, re, subprocess, time
+import os, re, subprocess, time, sys
 from socket import socket
 from wtforms import Form, TextField, validators, SubmitField, ValidationError, SelectField
 
@@ -16,7 +16,7 @@ def home():
 			port = s.getsockname()[1]
 		command = "timeout 3600s gotty -p {0} -w --close-timeout 10 --timeout 30 docker run -it --rm {1}".format(port, request.form['dname'])
 		subprocess.Popen(command, close_fds=True, shell=True)
-		redir = "http://127.0.0.1:{}".format(port)
+		redir = "http://{}:{}".format(app.config.get('ext_ip'), port)
 		time.sleep(0.1)
 		return redirect(redir, code=302)
 
@@ -52,4 +52,5 @@ class ReusableForm(Form):
 
 if __name__ == "__main__":
     # Run app
+    app.config['ext_ip'] = sys.argv[1]
     app.run(host='0.0.0.0', port=8080)
