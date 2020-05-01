@@ -13,7 +13,7 @@ To run the web app, use the following commands
 
 The web app can now be accessed via external_ip:8080 in the browser.
 
-Starting a Docker Python container in the web app would look like this:
+Starting the custom container in the web app would look like this:
 
 ![gif](https://raw.githubusercontent.com/cwinge/web-terminal/master/preview.gif)
 
