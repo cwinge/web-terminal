@@ -1,0 +1,19 @@
+body{
+	background-image:url("/static/images/congruent_pentagon_bw.png");
+	background-repeat: repeat;
+}
+
+.flash {
+    background-color: #F26363;
+    padding: 10px;
+    width: 200px;
+    display: table;
+  }
+
+  mark{
+  	background-color: #54d4ff
+  }
+
+  form input#submit{
+  	margin-bottom: 10px;
+  }

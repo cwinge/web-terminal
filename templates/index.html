@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Contained Docker environment in the browser</title>
+  <link rel="stylesheet" href="/static/css/main.css">
+  
+</head>
+
+<body>
+  <div class="container">
+    <h1>
+      <center>Enter any valid Docker hub container name to open run it and access its terminal</center>
+    </h1>
+
+    {% block content %}
+    {% for message in form.dname.errors %}
+    <div class="flash">{{ message }}</div>
+    {% endfor %}
+
+    <form method=post>
+      {{ form.dname.label }}
+      {{ form.dname }}
+
+      {{ form.submit }}
+    </form>
+    {% endblock %}
+    <div> Enter <mark>customenv</mark> as name to use a premade Ubuntu image that is preinstalled with
+        <ul>
+          <li>git</li>
+          <li>python3</li>
+          <li>python3-pip</li>
+          <li>gcc</li>
+          <li>curl</li>
+          <li>wget</li>
+          <li>vim</li>
+          <li>gedit</li>
+          <li>nano</li>
+          <li>make</li>
+        </ul>
+        and more...
+
+  </div>
+</body>
+
+</html>
