@@ -6,6 +6,7 @@ Made with Python, Flask, GoTTY and Docker.
 The install.sh can be used as the start script for the deployed VM, or be ran manually when SSH'ed into it. 
 
 To run the web app, use the following commands
+
 ``tmux``
 
 ``python3 main.py <insert external ip>``
@@ -22,4 +23,4 @@ Starting a Docker Python container in the web app would look like this:
 
 As this is just a simple demo, it is not well tested and not secure. Flask should not be used for production. 
 With some trivial changes and additions, this could be improved substantionally.
-Using another languange than Python and other deployment service than Flask would be benifital, as some things got quite ugly and less dynamic due to it not being well suited for external access. 
+Using some other languange than Python and other deployment service than Flask would be benifitial, as some things got quite ugly and less dynamic due to it not being well suited for external access. 
