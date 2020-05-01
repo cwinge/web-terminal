@@ -21,4 +21,5 @@ Starting a Docker Python container in the web app would look like this:
 ![pythonterminal](https://github.com/cwinge/web-terminal/blob/master/preview_python2.PNG?raw=true)
 
 As this is just a simple demo, it is not well tested and not secure. Flask should not be used for production. 
-With some trivial changes and additions, this could be improved substantionally. 
+With some trivial changes and additions, this could be improved substantionally.
+Using another languange than Python and other deployment service than Flask would be benifital, as some things got quite ugly and less dynamic due to it not being well suited for external access. 
