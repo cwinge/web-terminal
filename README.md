@@ -13,6 +13,11 @@ To run the web app, use the following commands
 
 The web app can now be accessed via external_ip:8080 in the browser.
 
+Name of the containers should follow one of the following formats (same as used in a regular ``docker pull`` command):
+
+``cname`` or ``cname:version`` or ``cname/cname2`` or ``cname/cname:version``
+
+
 Starting the custom container in the web app would look like this:
 
 ![gif](https://raw.githubusercontent.com/cwinge/web-terminal/master/preview.gif)
