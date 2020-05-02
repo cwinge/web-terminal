@@ -39,7 +39,7 @@ def validate_size(form, field):
 		a = field.data.split("/")[0]
 		b = field.data.split("/")[1]
 		input += "curl -s -H \"Authorization: JWT ${{TOKEN}}\" \"https://hub.docker.com/v2/repositories/{}/{}/tags/?page_size=100\" | jq -r \'.results[] | select(.name == \"latest\") | .images[0].size\'".format(a,b)
-    elif ":" in field.data:
+    	elif ":" in field.data:
 		a = field.data.split(":")[0]
 		b = field.data.split(":")[1]
 		input += "curl -s -H \"Authorization: JWT ${{TOKEN}}\" \"https://hub.docker.com/v2/repositories/library/{}/tags/?page_size=1000\" | jq -r \'.results[] | select(.name == \"{}\") | .images[0].size\'".format(a,b)
