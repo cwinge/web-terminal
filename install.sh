@@ -11,6 +11,8 @@ sudo usermod -aG docker ${USER}
 sudo systemctl start docker
 sudo systemctl enable docker
 sudo systemctl restart docker
+# Fix for daemon issue that sometimes present itself...
+sudo chmod 666 /var/run/docker.sock 
 
 # install python3
 sudo apt install -y python3
