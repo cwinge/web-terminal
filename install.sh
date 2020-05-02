@@ -35,7 +35,7 @@ rm gotty_2.0.0-alpha.3_linux_amd64.tar.gz
 sudo apt install -y tmux
 
 #install jq - used to get docker container size via docker API
-sudp apt install -y jq
+sudo apt install -y jq
 
 # clone git repo
 git clone https://github.com/cwinge/web-terminal
