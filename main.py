@@ -30,15 +30,19 @@ def validate_size(form, field):
 	input = "export HUBUSER=webtermdemo &&"
 	input += "export HUBPASS=webtermdemo &&"
 	input += "export HUBTOKEN=$(curl -s -H \"Content-Type: application/json\" -X POST -d \'{\"username\": \"\'${HUBUSER}\'\", \"password\": \"\'${HUBPASS}\'\"}\' https://hub.docker.com/v2/users/login/ | jq -r .token) &&"
-	if ":" in field.data:
+	if ":" in field.data and "/" in field.data:
 		a = field.data.split("/")[0]
 		b = field.data.split("/")[1].split(":")[0]
 		c = field.data.split(":")[1]
-		input += "curl -s -H \"Authorization: JWT ${{TOKEN}}\" \"https://hub.docker.com/v2/repositories/{}/{}/tags/?page_size=100\" | jq -r \'.results[] | select(.name == \"{}\") | .images[0].size\'".format(a,b,c)
+		input += "curl -s -H \"Authorization: JWT ${{TOKEN}}\" \"https://hub.docker.com/v2/repositories/{}/{}/tags/?page_size=1000\" | jq -r \'.results[] | select(.name == \"{}\") | .images[0].size\'".format(a,b,c)
 	elif "/" in field.data:
 		a = field.data.split("/")[0]
 		b = field.data.split("/")[1]
 		input += "curl -s -H \"Authorization: JWT ${{TOKEN}}\" \"https://hub.docker.com/v2/repositories/{}/{}/tags/?page_size=100\" | jq -r \'.results[] | select(.name == \"latest\") | .images[0].size\'".format(a,b)
+    elif ":" in field.data:
+		a = field.data.split(":")[0]
+		b = field.data.split(":")[1]
+		input += "curl -s -H \"Authorization: JWT ${{TOKEN}}\" \"https://hub.docker.com/v2/repositories/library/{}/tags/?page_size=1000\" | jq -r \'.results[] | select(.name == \"{}\") | .images[0].size\'".format(a,b)
 	else:
 		input += "curl -s -H \"Authorization: JWT ${{TOKEN}}\" \"https://hub.docker.com/v2/repositories/library/{}/tags/?page_size=100\" | jq -r \'.results[] | select(.name == \"latest\") | .images[0].size\'".format(field.data)
 	stream = os.popen(input)
