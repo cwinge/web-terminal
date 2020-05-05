@@ -22,6 +22,51 @@ Starting the custom container in the web app would look like this:
 
 ![gif](https://raw.githubusercontent.com/cwinge/web-terminal/master/preview.gif)
 
+
+
+
 As this is just a simple demo, it is not well tested and not secure. Flask should not be used for production. 
 With some trivial changes and additions, this could be improved substantionally.
 Using some other languange than Python and other deployment service than Flask would be benifitial, as some things got quite ugly and less dynamic due to it not being well suited for external access. 
+
+## Easter egg shown below!
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+
+.
+![easteregg](https://raw.githubusercontent.com/cwinge/web-terminal/master/easteregg.gif) 
